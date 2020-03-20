@@ -13,7 +13,10 @@ const Store = require('electron-store')
 
 const { join } = require('path')
 
-const musicStore = new Store({ cwd: join(__dirname, 'data'), name: 'music' })
+const musicStore = new Store({
+  cwd: join(__dirname, 'data-store'),
+  name: 'music'
+})
 
 console.log(musicStore.get())
 ;(async () => {
