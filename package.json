@@ -4,7 +4,7 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "nodemon --watch main.js --exec electron ."
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -17,6 +17,13 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^8.1.1"
+    "electron": "8.1.0",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "bootstrap": "^4.4.1",
+    "electron-store": "^5.1.1",
+    "uuid": "^7.0.2"
   }
 }

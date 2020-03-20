@@ -1,19 +1,40 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+<html lang="en">
 
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electron Music Palyer</title>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./iconfont/iconfont.css">
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+
+
+  <button id="importMusicFile" class="btn btn-outline-primary">导入本地音乐文件</button>
+
+  <hr>
+
+
+  <div id="musicList" class="list-group"></div>
+
+  <script type="text/html" id="musicItem">
+    {{ each data v }}
+      <div class="list-group-item d-flex justify-content-between">
+        <div>
+          <i class="iconfont icon-music mr-2"></i> {{ v.name }}
+        </div>
+        <div>
+          <i class="iconfont icon-play mr-2" data-path="{{ v.path }}"></i>
+          <i class="iconfont icon-delete"></i>
+        </div>
+      </div>
+    {{ /each }}
+  </script>
+
+  <script src="./index.js"></script>
+</body>
+
 </html>

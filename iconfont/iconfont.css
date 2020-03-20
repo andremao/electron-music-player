@@ -1,0 +1,33 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1584711071387'); /* IE9 */
+  src: url('iconfont.eot?t=1584711071387#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAPAAAsAAAAACHAAAANyAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqEEIM6ATYCJAMUCwwABCAFhG0HRxtFBxEVnMXIfiTGMSnrLL+JJtrNBM9jW/l+ElgmVMyFqZqfxOTE1vRMAJg41wMbFaFGcvbJoy9cB5xm8H/cq5q1zoPz2be4zDVoUC6A4VgsoGOstlSyFuQXjDuM3UR5ENchgCUbRZA69Zq0wcMA5gkgQwb274mXMmNqagUPwS3ZapBlOHhqvroLLOW/L18pJR4oHA1Y2qJf3T7UCNslXtdBFNCFYpCM5wS0XaCBIoABGVXqHoIO00XQWOfvDDUAi4dChe3CaeHtxOtRhCvfkdZCNWP84xkUiAuoTgJADTFjIGyHEWgIpyEQCG8jMJB4PYMC7ssLVqzYBlwHMLLwtoOgUFmTJEnnZUmaNI0evWAfat0+m2TPAdHxA6lzNz8qm/Tsk+x67YY+es2GBfvSqGD/woPtazDrDKvXO0s6W9lypZw9dSkLdsE+keknX3gQ/V5x318IdvBw8/Rpm+fP27140X5hWd1DycrJg6vcoSiS0NM70bDxQNsFa9LtyRQ8k3/twrQjV68P1qUZsaq76R9FyUk+SbVKPiZHXsWZnGypk/15x4YeW+dPqvaxZvcayT6mXZasRnKyptjNwj2yHkuenXzvx7aiEqXYkCKSotu6qAKaOFIkdeoNKFH0GtWvgsKPUntax24CBbJFasejy1xpeHViGQqkaR2ku5tuXbo7Re6kW5PuXQ/cY513PC3kxltVjhGrvCb9mjbTV29Ps3MlO2NKlne93hWjAwBRpHtolT1D/dJB9plup4v+a3R4cmDX6O7Jq/z3fAPA6w3hVjEUBYb24h+mwZH8WUnLHuPKgMUxdicW216H1u8Er0R62//0p+L9ONq0ratB8EgbgyKBrKDxyIM1xCLg4FMGXDyqg6Uw9Xf7pGYUGjExoBCzBRBScBQUybgKmhTcwxriO3BIx3dwSSEaLO0k9ZE+hnxSXK4MJbCk/1SYrnXIJpeg9oVsrBUnZZz1A/siRnEQZXNPtOAxVvgpS0QcOe4aegi3oa476rkrYSTIRfo0DF3ZNwWma1YXajOUwBL6TxSmax0dLJfcz7+QjbXimq4O/w/si/GJmICoBfapblt1XctX/JQliDjCcdcQD8GJGqY7oi+fVMJIQN4j2aeEUj/XVh3Mr22e8RBgAU85okSLEUdc3D6oIdg3oy/MvlesBbu+Vv/VCgAA') format('woff2'),
+  url('iconfont.woff?t=1584711071387') format('woff'),
+  url('iconfont.ttf?t=1584711071387') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1584711071387#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-delete:before {
+  content: "\e67e";
+}
+
+.icon-music:before {
+  content: "\e7c6";
+}
+
+.icon-pause:before {
+  content: "\e656";
+}
+
+.icon-play:before {
+  content: "\e6ca";
+}
+

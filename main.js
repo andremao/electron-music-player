@@ -1,41 +1,68 @@
-// Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
-const path = require('path')
+const {
+  app,
+  BrowserWindow,
+  ipcMain,
+  dialog: { showOpenDialog }
+} = require('electron')
 
-function createWindow () {
-  // Create the browser window.
-  const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+const { basename } = require('path')
+
+const { v4: uuidv4 } = require('uuid')
+
+const Store = require('electron-store')
+
+const { join } = require('path')
+
+const musicStore = new Store({ cwd: join(__dirname, 'data'), name: 'music' })
+
+console.log(musicStore.get())
+;(async () => {
+  await app.whenReady()
+
+  const mainWin = new BrowserWindow({
+    width: 600,
+    height: 500,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      nodeIntegration: true
     }
   })
 
-  // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  ipcMain.on('importMusicFile', async e => {
+    const res = await showOpenDialog({
+      defaultPath: '/Users/andremao/Music',
+      properties: ['openFile', 'multiSelections'],
+      filters: [{ name: 'Music', extensions: ['mp3'] }]
+    })
 
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
-}
+    if (res.canceled) return
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
-app.whenReady().then(createWindow)
+    // [
+    // { id: 'asdfasdf', name: '嚣张.mp3', path: '/Users/andremao/Music/嚣张.mp3' }
+    // { id: 'asdfasdf', name: 'Dance Monkey.mp3', path: '/Users/andremao/Music/Dance Monkey.mp3' }
+    // ]
 
-// Quit when all windows are closed.
-app.on('window-all-closed', function () {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') app.quit()
-})
+    const existingMusicArr = Object.values(musicStore.get()).map(v => v.path)
+    console.log(existingMusicArr, 'existingMusicArr')
 
-app.on('activate', function () {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (BrowserWindow.getAllWindows().length === 0) createWindow()
-})
+    const data = res.filePaths
+      // 看目前是否已经存在，如果已经存在了，就不用导入了，
+      // 怎们判断？实际就是看文件路径
+      .filter(v => !existingMusicArr.includes(v))
+      .map(v => ({
+        id: uuidv4(),
+        name: basename(v),
+        path: v
+      }))
+      .reduce((data, v) => ({ ...data, [v.id]: v }), {})
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+    musicStore.set(data)
+
+    e.reply('importMusicFile', musicStore.get())
+  })
+
+  ipcMain.on('loadMusicArr', e => {
+    e.reply('loadMusicArr', musicStore.get())
+  })
+
+  mainWin.loadFile('./index.html')
+})()

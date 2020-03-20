@@ -1,0 +1,37 @@
+{
+  "id": "1704468",
+  "name": "ElectronMusicPlayer",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "248953",
+      "name": "delete",
+      "font_class": "delete",
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    },
+    {
+      "icon_id": "400957",
+      "name": "music",
+      "font_class": "music",
+      "unicode": "e7c6",
+      "unicode_decimal": 59334
+    },
+    {
+      "icon_id": "938285",
+      "name": "pause",
+      "font_class": "pause",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "8474333",
+      "name": "play",
+      "font_class": "play",
+      "unicode": "e6ca",
+      "unicode_decimal": 59082
+    }
+  ]
+}
